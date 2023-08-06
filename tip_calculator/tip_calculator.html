@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tip Calculator App</title>
+</head>
+<body>
+    <h1>Tip Calculator App</h1>
+    <div for="billAmount">Enter the bill amount: $</div>
+    <input type="text" id="billAmount">
+    <br><br>
+
+    <div for="tipPercentage">Enter the tip percentage (e.g., 10, 15, 20): </div>
+    <input type="text" id="tipPercentage">
+    <br><br>
+
+    <div>
+    <button onclick="calculateTip()">Calculate Tip</button>
+    </div>
+    <br><br>
+    <h2>Result:</h2>
+    <p id="totalAmount"></p>
+
+    <script>
+        function calculateTip() {
+            var billAmount = parseFloat(document.getElementById("billAmount").value);
+            var tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+
+            if (isNaN(billAmount) || isNaN(tipPercentage)) {
+                alert("Please enter valid numeric values.");
+            } else {
+                var tipAmount = billAmount * (tipPercentage / 100);
+                var totalAmount = billAmount + tipAmount;
+                document.getElementById("totalAmount").innerText = "Total amount to be paid (including tip): $" + totalAmount.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
